@@ -16,11 +16,7 @@ const image = { uri: "/assets/background.jpg" };
 export default function App() {
   return (
     <Screen>
-      <ListItem
-        title="Title"
-        subTitle="Subtitle"
-        ImageComponent={<Icon name="email" />}
-      />
+      <ListItem title="My Title" ImageComponent={<Icon name="email" />} />
     </Screen>
   );
 }
