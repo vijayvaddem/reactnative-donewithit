@@ -10,15 +10,12 @@ import Icon from "./app/components/Icon";
 
 import Screen from "./app/components/Screen";
 import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
 
 const image = { uri: "/assets/background.jpg" };
 
 export default function App() {
-  return (
-    <Screen>
-      <ListItem title="My Title" ImageComponent={<Icon name="email" />} />
-    </Screen>
-  );
+  return <AccountScreen />;
 }
 
 const styles = StyleSheet.create({
