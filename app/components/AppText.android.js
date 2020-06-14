@@ -1,10 +1,12 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text } from "react-native";
+
+import defaultStyles from "../config/styles";
 
 function AppText({ children, style, numberOfLines, ellipsizeMode }) {
   return (
     <Text
-      style={[styles.text, style]}
+      style={[defaultStyles.text, style]}
       numberOfLines={numberOfLines}
       ellipsizeMode={ellipsizeMode}
     >
@@ -12,12 +14,5 @@ function AppText({ children, style, numberOfLines, ellipsizeMode }) {
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 18,
-    fontFamily: "Roboto",
-  },
-});
 
 export default AppText;
