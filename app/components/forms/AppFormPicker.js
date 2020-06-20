@@ -5,7 +5,7 @@ import ErrorMessage from "./ErrorMessage";
 import { useFormikContext } from "formik";
 
 function AppFormPicker({
-  icon,
+  numberOfColumns,
   width,
   items,
   name,
@@ -17,6 +17,7 @@ function AppFormPicker({
     <>
       <AppPicker
         items={items}
+        numberOfColumns={numberOfColumns}
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
         PickerItemComponent={PickerItemComponent}
