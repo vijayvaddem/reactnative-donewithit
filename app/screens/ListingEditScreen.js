@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import * as Yup from "yup";
 import AppPicker from "../components/AppPicker";
 import AppFormPicker from "../components/forms/AppFormPicker";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const categories = [
   {
@@ -31,44 +32,49 @@ const validationSchema = Yup.object().shape({
 function ListingEditScreen(props) {
   return (
     <Screen style={styles.container}>
-      <AppForm
-        initialValues={{
-          title: "",
-          price: "",
-          description: "",
-          category: null,
-        }}
-        validationSchema={validationSchema}
-        onSubmit={(values) => console.log(values)}
-      >
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          name="title"
-          placeholder="Title"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          name="price"
-          placeholder="Price"
-          keyboardType="numeric"
-        />
-        <AppFormPicker
-          items={categories}
-          name="category"
-          placeholder="Category"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          multiline
-          numberOfLines={3}
-          autoCorrect={false}
-          name="description"
-          placeholder="Description"
-        />
-        <SubmitButton title="Post" />
-      </AppForm>
+      <View style={styles.formContainer}>
+        <AppForm
+          initialValues={{
+            title: "",
+            price: "",
+            description: "",
+            category: null,
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => console.log(values)}
+        >
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            name="title"
+            placeholder="Title"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            name="price"
+            placeholder="Price"
+            keyboardType="numeric"
+            width={120}
+          />
+          <AppFormPicker
+            items={categories}
+            name="category"
+            PickerItemComponent={CategoryPickerItem}
+            placeholder="Category"
+            width="50%"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            multiline
+            numberOfLines={3}
+            autoCorrect={false}
+            name="description"
+            placeholder="Description"
+          />
+          <SubmitButton title="Post" />
+        </AppForm>
+      </View>
     </Screen>
   );
 }
@@ -77,6 +83,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     marginTop: 50,
+  },
+  formContainer: {
+    backgroundColor: "red",
   },
 });
 

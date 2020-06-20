@@ -9,14 +9,18 @@ import ListItemDeleteAction from "../components/ListItemDeleteAction";
 const initialMessages = [
   {
     id: "1",
-    title: "T1",
-    description: "D1",
+    title:
+      "This message has long text text text text text text text text text text text text text text text text text text",
+    description:
+      "Our ListItem and Card components look terrible if we give them long text Long text should be truncated Our ListItem and Card components look terrible if we give them long text Long text should be truncated Our ListItem and Card components look terrible if we give them long text Long text should be truncated ",
     image: require("../assets/Vijay.jpg"),
   },
   {
     id: "2",
-    title: "T2",
-    description: "D2",
+    title:
+      "This message has long text text text text text text text text text text text text text text text text text text",
+    description:
+      "Our ListItem and Card components look terrible if we give them long text Long text should be truncated Our ListItem and Card components look terrible if we give them long text Long text should be truncated Our ListItem and Card components look terrible if we give them long text Long text should be truncated ",
     image: require("../assets/Vijay.jpg"),
   },
   {

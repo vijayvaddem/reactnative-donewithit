@@ -2,9 +2,16 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import Constants from "expo-constants";
 import { SafeAreaView } from "react-native";
+import colors from "../config/colors";
 
 function Screen({ children, style }) {
-  return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
+  return (
+    <SafeAreaView
+      style={[styles.screen, style, { backgroundColor: colors.secondary }]}
+    >
+      {children}
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
