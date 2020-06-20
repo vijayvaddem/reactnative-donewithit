@@ -9,13 +9,13 @@ import {
 import { FlatList } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import AppText from "./AppText.android";
+import AppText from "./Text";
 import PickerItem from "./PickerItem";
 import Screen from "./Screen";
 import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 
-function AppPicker({
+function Picker({
   icon,
   items,
   numberOfColumns = 1,
@@ -97,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppPicker;
+export default Picker;

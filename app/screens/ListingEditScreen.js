@@ -1,10 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import { Form, FormField, SubmitButton } from "../components/forms";
 import * as Yup from "yup";
-import AppPicker from "../components/AppPicker";
-import AppFormPicker from "../components/forms/AppFormPicker";
+import FormPicker from "../components/forms/FormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const categories = [
@@ -39,7 +38,7 @@ function ListingEditScreen(props) {
   return (
     <Screen style={styles.container}>
       <View style={styles.formContainer}>
-        <AppForm
+        <Form
           initialValues={{
             title: "",
             price: "",
@@ -49,13 +48,13 @@ function ListingEditScreen(props) {
           validationSchema={validationSchema}
           onSubmit={(values) => console.log(values)}
         >
-          <AppFormField
+          <FormField
             autoCapitalize="none"
             autoCorrect={false}
             name="title"
             placeholder="Title"
           />
-          <AppFormField
+          <FormField
             autoCapitalize="none"
             autoCorrect={false}
             name="price"
@@ -63,7 +62,7 @@ function ListingEditScreen(props) {
             keyboardType="numeric"
             width={120}
           />
-          <AppFormPicker
+          <FormPicker
             items={categories}
             name="category"
             numberOfColumns={3}
@@ -71,7 +70,7 @@ function ListingEditScreen(props) {
             placeholder="Category"
             width="50%"
           />
-          <AppFormField
+          <FormField
             autoCapitalize="none"
             multiline
             numberOfLines={3}
@@ -80,7 +79,7 @@ function ListingEditScreen(props) {
             placeholder="Description"
           />
           <SubmitButton title="Post" />
-        </AppForm>
+        </Form>
       </View>
     </Screen>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View, Image } from "react-native";
-import AppButton from "../components/AppButton";
+import Button from "../components/Button";
 
 const WelcomeScreen = (props) => {
   return (
@@ -17,8 +17,8 @@ const WelcomeScreen = (props) => {
         <Text style={styles.tagline}>Sell what you don't need!</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <AppButton title="Login" onPress={() => console.log("Logging in")} />
-        <AppButton
+        <Button title="Login" onPress={() => console.log("Logging in")} />
+        <Button
           title="Register"
           color="secondary"
           onPress={() => console.log("Logging in")}
