@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
-import * as Location from "expo-location";
 import * as Yup from "yup";
 import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton } from "../components/forms";
 import FormPicker from "../components/forms/FormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 const categories = [
   {
@@ -38,22 +38,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function ListingEditScreen(props) {
-  const [location, setLocation] = useState();
-
-  const getLocation = async () => {
-    const { granted } = await Location.requestPermissionsAsync();
-    if (!granted) return;
-    console.log("Granted");
-    const {
-      coords: { latitude, longitude },
-    } = await Location.getLastKnownPositionAsync();
-    setLocation({ latitude, longitude });
-  };
-
-  useEffect(() => {
-    getLocation();
-  }, []);
-
+  const location = useLocation();
   return (
     <Screen style={styles.container}>
       <View style={styles.formContainer}>
@@ -87,7 +72,7 @@ function ListingEditScreen(props) {
             items={categories}
             name="category"
             numberOfColumns={3}
-            //PickerItemComponent={CategoryPickerItem}
+            PickerItemComponent={CategoryPickerItem}
             placeholder="Category"
             width="50%"
           />
