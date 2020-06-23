@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Screen from "./app/components/Screen";
 import ImageInputList from "./app/components/ImageInputList";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import AppText from "./app/components/Text";
+import AccountScreen from "./app/screens/AccountScreen";
 
 function Tweets({ navigation }) {
   return (
@@ -59,11 +61,21 @@ function StackNavigator() {
     </Stack.Navigator>
   );
 }
+const Tab = createBottomTabNavigator();
+
+const BottonTabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={ListingEditScreen} />
+      <Tab.Screen name="My Account" component={AccountScreen} />
+    </Tab.Navigator>
+  );
+};
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <BottonTabNavigator />
     </NavigationContainer>
   );
 }
