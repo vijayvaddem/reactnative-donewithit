@@ -35,9 +35,27 @@ const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Tweets" component={Tweets} />
-      <Stack.Screen name="Tweet details" component={TweetDetails} />
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: "dodgerblue" },
+        headerTintColor: "white",
+        headerShown: true,
+      }}
+    >
+      <Stack.Screen
+        name="Tweets"
+        component={Tweets}
+        options={{
+          headerStyle: { backgroundColor: "tomato" },
+          headerTintColor: "white",
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="Tweet details"
+        component={TweetDetails}
+        options={({ route }) => ({ title: route.params.name })}
+      />
     </Stack.Navigator>
   );
 }
