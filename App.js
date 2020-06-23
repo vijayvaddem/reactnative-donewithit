@@ -14,16 +14,18 @@ function Tweets({ navigation }) {
       <AppText>Tweets</AppText>
       <Button
         title="Go to Tweet details"
-        onPress={() => navigation.navigate("Tweet details")}
+        onPress={() =>
+          navigation.navigate("Tweet details", { id: 1, name: "Hello world" })
+        }
       />
     </Screen>
   );
 }
 
-function TweetDetails({ navigation }) {
+function TweetDetails({ navigation, route }) {
   return (
     <Screen>
-      <AppText>Tweet details</AppText>
+      <AppText>Tweet details {route.params.name}</AppText>
       <Button title="Go back" onPress={() => navigation.navigate("Tweets")} />
     </Screen>
   );
