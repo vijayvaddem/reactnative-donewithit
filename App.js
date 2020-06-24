@@ -14,6 +14,8 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 function Tweets({ navigation }) {
   return (
@@ -111,8 +113,8 @@ const BottonTabNavigator = () => {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AuthNavigator />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
     </NavigationContainer>
     //<WelcomeScreen />
   );
