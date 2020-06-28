@@ -8,7 +8,6 @@ export default useLocation = () => {
     try {
       const { granted } = await Location.requestPermissionsAsync();
       if (!granted) return;
-      console.log("Granted");
       const {
         coords: { latitude, longitude },
       } = await Location.getLastKnownPositionAsync();
