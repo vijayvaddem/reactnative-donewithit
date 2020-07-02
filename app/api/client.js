@@ -12,7 +12,7 @@ apiClient.get = async (url, params, axiosConfig) => {
 
   if (response.ok) {
     console.log("Caching..", response.data);
-    cache.store(url, response.data);
+    cache.store(url, response.git);
     return response;
   }
 
