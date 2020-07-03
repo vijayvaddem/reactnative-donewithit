@@ -11,7 +11,6 @@ apiClient.get = async (url, params, axiosConfig) => {
   const response = await get(url, params, axiosConfig);
 
   if (response.ok) {
-    console.log("Caching..", response.data);
     cache.store(url, response.git);
     return response;
   }
