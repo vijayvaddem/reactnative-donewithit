@@ -15,19 +15,37 @@ const categories = [
     label: "Furniture",
     value: "1",
     backgroundColor: "red",
-    icon: "apps",
+    icon: "sofa",
   },
   {
     label: "Clothing",
     value: "2",
     backgroundColor: "lightblue",
-    icon: "email",
+    icon: "tshirt-crew",
   },
   {
     label: "Cameras",
     value: "3",
     backgroundColor: "gold",
-    icon: "lock",
+    icon: "camera",
+  },
+  {
+    label: "Stationary",
+    value: "4",
+    backgroundColor: "#00adb5",
+    icon: "pen",
+  },
+  {
+    label: "Mobile",
+    value: "5",
+    backgroundColor: "#393e46",
+    icon: "cellphone",
+  },
+  {
+    label: "Craft",
+    value: "5",
+    backgroundColor: "#393e46",
+    icon: "minecraft",
   },
 ];
 
