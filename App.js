@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { AppLoading } from "expo";
-import jwtDecode from "jwt-decode";
 import AppNavigator from "./app/navigation/AppNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import OfflineNotice from "./app/components/OfflineNotice";
@@ -13,11 +12,10 @@ export default function App() {
   const [user, setUser] = useState();
   const [isReady, setIsReady] = useState(false);
 
-  const restoreToken = async () => {
+  const restoreUser = async () => {
     try {
-      const token = await authStorage.getToken();
-      if (!token) return;
-      setUser(jwtDecode(token));
+      const user = await authStorage.getUser();
+      if (user) setUser(user);
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +23,7 @@ export default function App() {
 
   if (!isReady)
     return (
-      <AppLoading startAsync={restoreToken} onFinish={() => setIsReady(true)} />
+      <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} />
     );
 
   return (
