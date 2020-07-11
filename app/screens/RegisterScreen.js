@@ -46,39 +46,41 @@ function RegisterScreen(props) {
     auth.login(authToken);
   };
   return (
-    <Screen style={styles.container}>
+    <>
       <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
-      <Form
-        initialValues={{ name: "", email: "", password: "" }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <ErrorMessage error={error} visible={error} />
-        <FormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="email"
-          name="name"
-          placeholder="Name"
-        />
-        <FormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="email"
-          name="email"
-          placeholder="Email"
-        />
-        <FormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="lock"
-          name="password"
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-        <SubmitButton title="Register" />
-      </Form>
-    </Screen>
+      <Screen style={styles.container}>
+        <Form
+          initialValues={{ name: "", email: "", password: "" }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          <ErrorMessage error={error} visible={error} />
+          <FormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="email"
+            name="name"
+            placeholder="Name"
+          />
+          <FormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="email"
+            name="email"
+            placeholder="Email"
+          />
+          <FormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="lock"
+            name="password"
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+          <SubmitButton title="Register" />
+        </Form>
+      </Screen>
+    </>
   );
 }
 
