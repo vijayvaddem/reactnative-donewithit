@@ -8,6 +8,7 @@ import ListingEditScreen from "../screens/ListingEditScreen";
 import FeedNavigator from "./FeedNavigator";
 import AccountNavigator from "./AccountNavigator";
 import AddListingButton from "./AddListingButton";
+import expoPushTokensApi from "../api/expoPushTokens";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,6 +27,9 @@ const AppNavigator = () => {
       //if permission granted, get push notifications token
       const token = await Notifications.getExpoPushTokenAsync();
       console.log("Token", token);
+
+      //store push token with user details
+      expoPushTokensApi.register(token);
     } catch (error) {
       console.log("Error", error);
     }
