@@ -9,12 +9,17 @@ import FeedNavigator from "./FeedNavigator";
 import AccountNavigator from "./AccountNavigator";
 import AddListingButton from "./AddListingButton";
 import expoPushTokensApi from "../api/expoPushTokens";
+import navigation from "./rootNavigation";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   useEffect(() => {
     registerForPushNotifications();
+    // used as callback handler when a usr clicks on notificaiton msg
+    Notifications.addListener((notification) => {
+      navigation.navigate("Account");
+    });
   }, []);
 
   //Register for push notifications
