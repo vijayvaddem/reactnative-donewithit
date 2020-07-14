@@ -8,6 +8,9 @@ import OfflineNotice from "./app/components/OfflineNotice";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
+import logger from "./app/utility/logger";
+
+logger.start();
 
 export default function App() {
   const [user, setUser] = useState();
@@ -18,7 +21,7 @@ export default function App() {
       const user = await authStorage.getUser();
       if (user) setUser(user);
     } catch (error) {
-      console.log(error);
+      logger.log(error);
     }
   };
 

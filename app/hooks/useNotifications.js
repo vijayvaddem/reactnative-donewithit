@@ -3,6 +3,7 @@ import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
 
 import expoPushTokensApi from "../api/expoPushTokens";
+import logger from "../utility/logger";
 //import navigation from "./rootNavigation";
 
 export default useNotifications = (notificationListener) => {
@@ -21,12 +22,11 @@ export default useNotifications = (notificationListener) => {
 
       //if permission granted, get push notifications token
       const token = await Notifications.getExpoPushTokenAsync();
-      console.log("Token", token);
 
       //store push token with user details
       expoPushTokensApi.register(token);
     } catch (error) {
-      console.log("Error", error);
+      logger.log("Error", error);
     }
   };
 };

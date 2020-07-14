@@ -51,8 +51,6 @@ function MessagesScreen(props) {
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
 
-  console.log(initialMessages);
-
   const handleDelete = (message) => {
     const newMessages = messages.filter((m) => m.id !== message.id);
     setMessages(newMessages);
